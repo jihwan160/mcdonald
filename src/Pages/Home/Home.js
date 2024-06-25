@@ -1,8 +1,13 @@
 import React from 'react'
+import Gnb from './Gnb'
 
 const Home = () => {
+
+
     return (
-        <div>Home</div>
+        <div>
+            <Gnb />
+        </div>
     )
 }
 
