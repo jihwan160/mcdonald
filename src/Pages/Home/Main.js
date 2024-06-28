@@ -57,6 +57,10 @@ const Main = () => {
 
     const slidelist = [
         {
+            img : `${process.env.PUBLIC_URL}img/index/slide4.jpg`,
+            alt : 'slide4',
+        },
+        {
             img : `${process.env.PUBLIC_URL}img/index/slide1.jpg`,
             alt : 'slide1',
         },
