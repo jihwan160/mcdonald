@@ -61,6 +61,18 @@ const Main = () => {
             alt : 'slide4',
         },
         {
+            img : `${process.env.PUBLIC_URL}img/index/slide5.jpg`,
+            alt : 'slide5',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/index/slide6.jpg`,
+            alt : 'slide6',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/index/slide7.jpg`,
+            alt : 'slide7',
+        },
+        {
             img : `${process.env.PUBLIC_URL}img/index/slide1.jpg`,
             alt : 'slide1',
         },
