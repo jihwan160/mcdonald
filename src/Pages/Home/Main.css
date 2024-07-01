@@ -1,0 +1,18 @@
+    .slide-progress-bar {
+        width: 300px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: #fff;
+        position: absolute;
+        left: 52%;
+        transform: translate(-50%);
+        bottom: 27px;
+        z-index: 10000000;
+        overflow: hidden;
+    }
+    
+    .slide-progress-bar-fill {
+        height: 100%;
+        background-color: #ffbc0d;
+        transition: width 0.5s ease-out;
+    }
