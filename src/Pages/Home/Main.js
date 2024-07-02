@@ -15,7 +15,8 @@ import styled from 'styled-components';
 const SwiperArea = styled.div`
     width: 100%;
     height: 100%;
-
+    position: relative;
+    top: -1px;
     & .swiper {
         max-width: 1920px;
         height: 540px;
@@ -163,7 +164,7 @@ const Main = () => {
                 {slidelist.map((i, index) => (
                     <SwiperSlide className='slide' key={index}>
                         <div style={{height : '100%'}}>
-                            <img src={i.img} alt={i.alt} />
+                            <img src={i.img} alt={i.alt}  style={{cursor : 'pointer'}}/>
                             <Background></Background>
                             <SlideProgressBar duration={4000} isActive={index === activeIndex} />
                         </div>
