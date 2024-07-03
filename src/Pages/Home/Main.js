@@ -17,6 +17,7 @@ const SwiperArea = styled.div`
     height: 100%;
     position: relative;
     top: -1px;
+    z-index: 9;
     & .swiper {
         max-width: 1920px;
         height: 540px;

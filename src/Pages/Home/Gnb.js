@@ -25,15 +25,46 @@ const GnbCover = styled.div`
             &:hover .gnbSub{
                 display: flex;
             }
+            &:hover .gnbsublist {
+                display: block;
+            }
             & > li {
-                line-height: 140px;
+                position: relative;
+                cursor: pointer;
                 padding: 0 10px;
                 margin-right: 85px;
-                color: #292929;
-                font-weight: 600;
-                font-size: 20px;
-                cursor: pointer;
-                position: relative;
+                & .gnbTitle {
+                    line-height: 140px;
+                    color: #292929;
+                    font-weight: 600;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+
+                & > .gnbsublist {
+                        position: absolute;
+                        top: 140px;
+                        padding: 35px 10px 45px 4px;
+                        z-index: 999;
+                        display: none;
+                        & > li {
+                            margin-bottom: 10px;
+                            & span {
+                                cursor: pointer;
+                                padding-bottom: 4px;
+                                color: gray;
+                                font-weight: 600;
+                                &:hover {
+                                    color: #292929;
+                                    border-bottom: 1px solid #000;
+                                }
+                            }
+                            & .noline {
+                                    color: gray !important;
+                                    border-bottom: none !important;
+                            }
+                        }
+                    }
                 &::after {
                     content: '';
                     width: 100%;
@@ -42,8 +73,8 @@ const GnbCover = styled.div`
                     display: block;
                     position: absolute;
                     left: 0;
-                    bottom: -3px;
-                    z-index: 3;
+                    bottom: -4px;
+                    z-index: 999;
                 }
                 &:hover::after{
                     height: 3px;
@@ -86,7 +117,7 @@ const GnbSub = styled.div`
     width: 100%;
     height: 360px;
     background: #fff;
-    border-top: 1px solid #000;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ffbc0d;
     position: absolute;
     left: 0;
@@ -94,37 +125,7 @@ const GnbSub = styled.div`
     display: flex;
     justify-content: center;
     display: none;
-    & > ul {
-        position: absolute;
-        left: 33.9%;
-        padding: 35px 10px 45px;
-        &:nth-child(2) {
-            left: 40.3%;
-        }
-        &:nth-child(3) {
-            left: 46.2%;
-        }
-        &:nth-child(4) {
-            left: 55%;
-        }
-        & > li {
-            margin-bottom: 10px;
-            & span {
-                cursor: pointer;
-                padding-bottom: 4px;
-                color: gray;
-                font-weight: 600;
-                &:hover {
-                    color: #292929;
-                    border-bottom: 1px solid #000;
-                }
-            }
-            & .noline {
-                    color: gray !important;
-                    border-bottom: none !important;
-            }
-        }
-    }
+    z-index: 99;
 `;
 
 
@@ -137,12 +138,9 @@ const Gnb = () => {
                     <div className='logo'><img src={`${process.env.PUBLIC_URL}img/index/logo.png`} alt='logo' /></div>
                     <div className='gnbMenu'>
                         <ul>
-                            <li className='a'>Menu</li>
-                            <li className='a'>Store</li>
-                            <li className='a'>What's NEW</li>
-                            <li className='a'>Story</li>
-                            <GnbSub className='gnbSub'>
-                                <ul>
+                            <li>
+                                <span className='gnbTitle'>Menu</span>
+                                <ul className='gnbsublist' style={{width : "120px"}}>
                                     <li><span>버거</span></li>
                                     <li><span className='noline'>맥런치</span></li>
                                     <li><span>맥모닝</span></li>
@@ -151,24 +149,34 @@ const Gnb = () => {
                                     <li><span>맥카페 & 음료</span></li>
                                     <li><span>해피밀</span></li>
                                 </ul>
-                                <ul>
+                            </li>
+                            <li>
+                                <span className='gnbTitle'>Store</span>
+                                <ul className='gnbsublist' style={{width : "80px"}}>
                                     <li><span>매장찾기</span></li>
                                     <li><span>맥딜리버리</span></li>
                                     <li><span>맥드라이브</span></li>
                                     <li><span>임차문의</span></li>
                                 </ul>
-                                <ul>
+                            </li>
+                            <li>
+                                <span className='gnbTitle'>What's NEW</span>
+                                <ul className='gnbsublist'>
                                     <li><span>프로모션</span></li>
                                     <li><span>새로운 소식</span></li>
                                     <li><span>이달의 해피밀</span></li>
                                 </ul>
-                                <ul>
+                            </li>
+                            <li>
+                                <span className='gnbTitle'>Story</span>
+                                <ul className='gnbsublist' style={{width : "153px"}}>
                                     <li><span>브랜드 소개</span></li>
                                     <li><span>사회적 챔임과 지원</span></li>
                                     <li><span>맥도날드 품질 이야기</span></li>
                                     <li><span>맥도날드 사람들</span></li>
                                 </ul>
-                            </GnbSub>
+                            </li>
+                            <GnbSub className='gnbSub'></GnbSub>
                         </ul>
                         <div className='gnbbtnlist'>
                             <GnbBtn>임차문의</GnbBtn>
