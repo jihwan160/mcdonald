@@ -2,6 +2,7 @@ import React from 'react'
 import Gnb from './Gnb'
 import Main from './Main'
 import Footer from './Footer'
+import Aside from './Aside'
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
             <Gnb />
             <Main />
             <Footer />
+            <Aside />
         </div>
     )
 }
