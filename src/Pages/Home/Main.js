@@ -99,7 +99,7 @@ const Content = styled.div`
 
     
     & .more {
-        margin-top: 80px;
+        margin-top: 45px;
         text-align: center;
     }
 `;
@@ -235,67 +235,76 @@ const Main = () => {
         )
     }
 
+    
+
     const MainContent = () => {
+
+        const initialList = [
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist1.png`,
+                alt : 'cardlist1',
+                con : '버거 세트 구매시 \n 사이드 무료 교환 안내',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist2.jpg`,
+                alt : 'cardlist2',
+                con : 'NEW 맥스파이시 상하이를 만나보세요!',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist3.jpg`,
+                alt : 'cardlist3',
+                con : '쌀가루로 더 바삭해진 NEW 맥스파이시!',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist4.jpg`,
+                alt : 'cardlist4',
+                con : '신선한 토마토와 고소한 치즈버거의 조화!\n토마토 치즈 비프 버거 출시!',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist5.jpg`,
+                alt : 'cardlist5',
+                con : '가성비 간식 맛집\n맥도날드 해피스낵!',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist6.jpg`,
+                alt : 'cardlist6',
+                con : '겉은 바삭! 속은 쫄깃\n여름엔 역시 맥윙!',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/main/cardlist7.jpg`,
+                alt : 'cardlist7',
+                con : '빠삭하게 빠져드는 맛,\n맥크리스피!',
+            },
+        ]
+
+        // 보여줄 리스트의 개수를 관리하는 상태
+        const [visibleCount, setVisibleCount] = useState(6);
+
+        // '더 보기' 버튼 클릭 시 실행될 함수
+        const showMoreItems = () => {
+            setVisibleCount(prevCount => prevCount + 6);
+        };
+        
         return(
             <ContentCover>
                 <Content>
                     <h2 className='maintit'>McDonald's LIVE</h2>
                     <ul className='cardListcol'>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist1.png`} alt='cardlist1'/>
-                            </div>
-                            <div className='con'>
-                                버거 세트 구매시 <br />
-                                사이드 무료 교환 안내
-                            </div>
-                        </li>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist2.jpg`} alt='cardlist2'/>
-                            </div>
-                            <div className='con'>
-                                NEW 맥스파이시 상하이를 만나보세요!
-                            </div>
-                        </li>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist3.jpg`} alt='cardlist3'/>
-                            </div>
-                            <div className='con'>
-                                쌀가루로 더 바삭해진 NEW 맥스파이시!
-                            </div>
-                        </li>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist4.jpg`} alt='cardlist4'/>
-                            </div>
-                            <div className='con'>
-                                빠삭하게 빠져드는 맛,<br />
-                                맥크리스피!
-                            </div>
-                        </li>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist5.jpg`} alt='cardlist5'/>
-                            </div>
-                            <div className='con'>
-                                가성비 간식 맛집<br />
-                                맥도날드 해피스낵!
-                            </div>
-                        </li>
-                        <li className='cardList'>
-                            <div>
-                                <img src={`${process.env.PUBLIC_URL}img/main/cardlist6.jpg`} alt='cardlist6'/>
-                            </div>
-                            <div className='con'>
-                                겉은 바삭! 속은 쫄깃<br />
-                                여름엔 역시 맥윙!
-                            </div>
-                        </li>
+                        {initialList.slice(0, visibleCount).map((i, index) => (
+                            <li className='cardList' key={index}>
+                                <div>
+                                    <img src={i.img} alt={i.alt}/>
+                                </div>
+                                <div className='con'>
+                                    {i.con}
+                                </div>
+                            </li>
+                        ))}
                     </ul>
                     <div className='more'>
-                        <BtnMore></BtnMore>
+                        {visibleCount < initialList.length && (
+                            <BtnMore onClick={showMoreItems}></BtnMore>
+                        )}
                     </div>
                 </Content>
             </ContentCover>
