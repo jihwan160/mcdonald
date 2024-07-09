@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 const AsideCover = styled.div`
     position: fixed;
-    right: 21%;
+    left: 49%;
     bottom: 310px;
+    margin-left: 650px;
     z-index: 9999;
 `;
 
