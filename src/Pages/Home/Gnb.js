@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
 
@@ -132,16 +133,19 @@ const GnbSub = styled.div`
 const Gnb = () => {
 
     const GnbTab = () => {
+
+        const navigate = useNavigate(null);
+
         return(
             <GnbCover>
                 <div className='gnbarea w1168'>
-                    <div className='logo'><img src={`${process.env.PUBLIC_URL}img/index/logo.png`} alt='logo' /></div>
+                    <div className='logo' onClick={()=>{navigate('/')}}><img src={`${process.env.PUBLIC_URL}img/index/logo.png`} alt='logo' /></div>
                     <div className='gnbMenu'>
                         <ul>
                             <li>
-                                <span className='gnbTitle'>Menu</span>
+                                <span className='gnbTitle' onClick={()=>{navigate('/burger')}}>Menu</span>
                                 <ul className='gnbsublist' style={{width : "120px"}}>
-                                    <li><span>버거</span></li>
+                                    <li onClick={()=>{navigate('/burger')}}><span>버거</span></li>
                                     <li><span className='noline'>맥런치</span></li>
                                     <li><span>맥모닝</span></li>
                                     <li><span className='noline'>해피 스낵</span></li>

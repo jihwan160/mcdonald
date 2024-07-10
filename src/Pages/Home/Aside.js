@@ -42,13 +42,20 @@ const AsideImg3 = styled.div`
 `;
 
 const Aside = () => {
+
+    const scrolltoTop = () => {
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    }
     
     const AsideArea = () => {
         return(
             <AsideCover>
                 <AsideImg1></AsideImg1>
                 <AsideImg2></AsideImg2>
-                <AsideImg3></AsideImg3>
+                <AsideImg3 onClick={scrolltoTop}></AsideImg3>
             </AsideCover>
         )
     }
