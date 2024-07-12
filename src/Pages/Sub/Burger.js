@@ -172,8 +172,8 @@ const Burger = () => {
 
         const alonelist = [
             {
-                img : '',
-                alt : '',
+                img : `${process.env.PUBLIC_URL}img/burger/blist1.png`,
+                alt : 'blist1',
                 con : '',
             }
         ]
