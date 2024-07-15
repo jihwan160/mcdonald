@@ -176,6 +176,11 @@ const Burger = () => {
                 alt : 'blist1',
                 con : '',
             }
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist2.png`,
+                alt : 'blist2',
+                con : '',
+            }
         ]
 
         const setlist = [
