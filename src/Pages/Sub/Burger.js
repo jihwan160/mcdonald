@@ -91,7 +91,7 @@ const Burger3g = styled.div`
         font-weight: bold;
         position: absolute;
         left: 0;
-        top: -40px;
+        top: -45px; 
         & p {
             display: inline-block;
         }
@@ -100,7 +100,7 @@ const Burger3g = styled.div`
             display: inline-block;
             width: 6px;
             height: 6px;
-            margin: 0 14px 0 10px;
+            margin: 0 14px 0 0;
             vertical-align: middle;
             border-radius: 100%;
             background: #f5bd43;
@@ -109,11 +109,21 @@ const Burger3g = styled.div`
 
     & .blist {
         text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         & li {
             width: 366px;
             height: 312px;
             margin: 0 0 35px 35px;
             cursor: pointer;
+            &:nth-child(3n-2) {
+                margin-left: 0;
+            }
+            &:hover .blistArea {
+                background: #fff;
+                border: 1px solid #f5bd43;
+            }
+
             & .blistArea {
                 display: block;
                 height: 100%;
@@ -174,12 +184,20 @@ const Burger = () => {
             {
                 img : `${process.env.PUBLIC_URL}img/burger/blist1.png`,
                 alt : 'blist1',
-                con : '',
-            }
+                con1 : '진주 고추 크림치즈 버거',
+                con2 : 'Jinju Pepper Cream Cheese Burger',
+            },
             {
                 img : `${process.env.PUBLIC_URL}img/burger/blist2.png`,
                 alt : 'blist2',
-                con : '',
+                con1 : '맥스파이시® 상하이 버거',
+                con2 : 'McSpicy®  Shanghai Burger',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist3.png`,
+                alt : 'blist2',
+                con1 : '토마토 치즈 비프 버거',
+                con2 : 'Tomato Cheese Beef Burger',
             }
         ]
 
@@ -187,7 +205,8 @@ const Burger = () => {
             {
                 img : '',
                 alt : '',
-                con : '',
+                con1 : '',
+                con2 : '',
             }
         ]
 
@@ -222,17 +241,19 @@ const Burger = () => {
                             <p>21 Products</p>
                         </div>
                         <ul className='blist'>
-                            <li>
-                                <div className='blistArea'>
-                                    <div>
-                                        <img src={`${process.env.PUBLIC_URL}img/burger/blist1.png`} alt='blist1' />
+                            {items.map((i, index) => (
+                                <li>
+                                    <div className='blistArea'>
+                                        <div>
+                                            <img src={i.img} alt={i.alt} />
+                                        </div>
+                                        <div className='name'>
+                                            <p className='tit'>{i.con1}</p>
+                                            <p className='eng'>{i.con2}</p>
+                                        </div>
                                     </div>
-                                    <div className='name'>
-                                        <p className='tit'>진주 고추 크림치즈 버거</p>
-                                        <p className='eng'>Jinju Pepper Cream Cheese Burger</p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            ))}
                         </ul>
                     </Burger3g>
                 </BurgerContent>
