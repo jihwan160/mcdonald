@@ -113,7 +113,7 @@ const Burger3g = styled.div`
         grid-template-columns: 1fr 1fr 1fr;
         & li {
             width: 366px;
-            height: 312px;
+            height: 352px;
             margin: 0 0 35px 35px;
             cursor: pointer;
             &:nth-child(3n-2) {
@@ -127,10 +127,12 @@ const Burger3g = styled.div`
             & .blistArea {
                 display: block;
                 height: 100%;
-                padding: 20px 30px;
                 background: #f8f8f8;
                 border-radius: 10px;
                 border: 1px solid #f8f8f8;
+                & .burgerimg {
+                    padding: 20px 30px 0;
+                }
                 & .name {
                     margin-top: 16px;
                     & .tit {
@@ -150,6 +152,21 @@ const Burger3g = styled.div`
             }
         }
     }
+    & .more {
+        margin-top: 45px;
+        text-align: center;
+    }
+`;
+
+const BtnMore = styled.div`
+    background-image: url(${process.env.PUBLIC_URL}img/main/btn_more.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+        width: 90px;
+        height: 90px;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
 `;
 
 const Burger = () => {
@@ -198,7 +215,7 @@ const Burger = () => {
                 alt : 'blist2',
                 con1 : '토마토 치즈 비프 버거',
                 con2 : 'Tomato Cheese Beef Burger',
-            }
+            },
         ]
 
         const setlist = [
@@ -209,6 +226,14 @@ const Burger = () => {
                 con2 : '',
             }
         ]
+
+        // 보여줄 리스트의 개수를 관리하는 상태
+        const [visibleCount, setVisibleCount] = useState(6);
+
+        // '더 보기' 버튼 클릭 시 실행될 함수
+        const showMoreItems = () => {
+            setVisibleCount(prevCount => prevCount + 6);
+        };
 
         const [activeTab, setActiveTab] = useState('alone');
 
@@ -241,10 +266,10 @@ const Burger = () => {
                             <p>21 Products</p>
                         </div>
                         <ul className='blist'>
-                            {items.map((i, index) => (
-                                <li>
+                            {items.slice(0,visibleCount).map((i, index) => (
+                                <li key={index}>
                                     <div className='blistArea'>
-                                        <div>
+                                        <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />
                                         </div>
                                         <div className='name'>
@@ -255,6 +280,11 @@ const Burger = () => {
                                 </li>
                             ))}
                         </ul>
+                        <div className='more'>
+                            {visibleCount < alonelist.length && (
+                                <BtnMore onClick={showMoreItems}></BtnMore>
+                            )}
+                        </div>
                     </Burger3g>
                 </BurgerContent>
             )
