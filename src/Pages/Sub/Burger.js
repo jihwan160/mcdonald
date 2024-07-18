@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Gnb from '../Home/Gnb';
 import Footer from '../Home/Footer';
 import { useNavigate } from 'react-router-dom';
+import Aside from '../Home/Aside';
 
 
 const VisualImg = styled.div`
@@ -212,9 +213,33 @@ const Burger = () => {
             },
             {
                 img : `${process.env.PUBLIC_URL}img/burger/blist3.png`,
-                alt : 'blist2',
+                alt : 'blist3',
                 con1 : '토마토 치즈 비프 버거',
                 con2 : 'Tomato Cheese Beef Burger',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist4.png`,
+                alt : 'blist4',
+                con1 : '더블 쿼터파운더® 치즈',
+                con2 : 'Double Quarter Pounder® with Cheese',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist5.png`,
+                alt : 'blist5',
+                con1 : '쿼터파운더® 치즈',
+                con2 : 'Quarter Pounder® with Cheese',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist6.png`,
+                alt : 'blist6',
+                con1 : '빅맥®',
+                con2 : 'Big Mac®',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/blist7.png`,
+                alt : 'blist7',
+                con1 : '맥크리스피® 디럭스 버거',
+                con2 : 'McCrispy® Deluxe Burger',
             },
         ]
 
@@ -263,7 +288,7 @@ const Burger = () => {
                     </ul>
                     <Burger3g>
                         <div className='count'>
-                            <p>21 Products</p>
+                            <p>{items.length} Products</p>
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
@@ -300,6 +325,7 @@ const Burger = () => {
             <BurgerVisual />
             <BurgerList />
             <Footer />
+            <Aside />
         </>
     )
 }
