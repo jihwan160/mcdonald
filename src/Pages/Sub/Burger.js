@@ -245,11 +245,47 @@ const Burger = () => {
 
         const setlist = [
             {
-                img : '',
-                alt : '',
-                con1 : '',
-                con2 : '',
-            }
+                img : `${process.env.PUBLIC_URL}img/burger/setlist1.png`,
+                alt : 'blist1',
+                con1 : '진주 고추 크림치즈 버거 세트',
+                con2 : 'Jinju Pepper Cream Cheese Burger Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist2.png`,
+                alt : 'blist2',
+                con1 : '맥스파이시® 상하이 버거 세트',
+                con2 : 'McSpicy®  Shanghai Burger Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist3.png`,
+                alt : 'blist3',
+                con1 : '토마토 치즈 비프 버거 세트',
+                con2 : 'Tomato Cheese Beef Burger Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist4.png`,
+                alt : 'blist4',
+                con1 : '더블 쿼터파운더® 치즈 세트',
+                con2 : 'Double Quarter Pounder® with Cheese Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist5.png`,
+                alt : 'blist5',
+                con1 : '쿼터파운더® 치즈 세트',
+                con2 : 'Quarter Pounder® with Cheese Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist6.png`,
+                alt : 'blist6',
+                con1 : '빅맥® 세트',
+                con2 : 'Big Mac® Meal',
+            },
+            {
+                img : `${process.env.PUBLIC_URL}img/burger/setlist7.png`,
+                alt : 'blist7',
+                con1 : '맥크리스피® 디럭스 버거 세트',
+                con2 : 'McCrispy® Deluxe Burger Meal',
+            },
         ]
 
         // 보여줄 리스트의 개수를 관리하는 상태
