@@ -146,7 +146,7 @@ const Gnb = () => {
                                 <span className='gnbTitle' onClick={()=>{navigate('/burger')}}>Menu</span>
                                 <ul className='gnbsublist' style={{width : "120px"}}>
                                     <li onClick={()=>{navigate('/burger')}}><span>버거</span></li>
-                                    <li><span className='noline'>맥런치</span></li>
+                                    <li onClick={()=>{navigate('/lunch')}}><span className='noline'>맥런치</span></li>
                                     <li><span>맥모닝</span></li>
                                     <li><span className='noline'>해피 스낵</span></li>
                                     <li><span>사이드 & 디저트</span></li>
