@@ -4,6 +4,7 @@ import Home from './Pages/Home/Home';
 import Burger from './Pages/Sub/Burger';
 import McLunch from './Pages/Sub/McLunch';
 import Mcmorning from './Pages/Sub/Mcmorning';
+import HappySnack from './Pages/Sub/HappySnack';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route exact path='/burger' element={<Burger />} />
           <Route exact path='/lunch' element={<McLunch />} />
           <Route exact path='/morning' element={<Mcmorning />} />
+          <Route exact path='/snack' element={<HappySnack />} />
         </Routes>
     </div>
   );
