@@ -286,7 +286,7 @@ const Dessert = () => {
                 con1 : '바닐라 선데이 아이스크림',
                 con2 : 'Vanilla Sundae',
             },
-        ]
+        ] 
 
         // 보여줄 리스트의 개수를 관리하는 상태
         const [visibleCount, setVisibleCount] = useState(6);
