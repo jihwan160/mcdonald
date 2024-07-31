@@ -150,7 +150,7 @@ const Gnb = () => {
                                     <li onClick={()=>{navigate('/morning')}}><span>맥모닝</span></li>
                                     <li onClick={()=>{navigate('/snack')}}><span className='noline'>해피 스낵</span></li>
                                     <li onClick={()=>{navigate('/dessert')}}><span>사이드 & 디저트</span></li> 
-                                    <li><span>맥카페 & 음료</span></li>
+                                    <li onClick={()=>{navigate('/cafe')}}><span>맥카페 & 음료</span></li>
                                     <li><span>해피밀</span></li>
                                 </ul>
                             </li>
