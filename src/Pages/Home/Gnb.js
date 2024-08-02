@@ -142,8 +142,8 @@ const Gnb = () => {
                     <div className='logo' onClick={()=>{navigate('/')}}><img src={`${process.env.PUBLIC_URL}img/index/logo.png`} alt='logo' /></div>
                     <div className='gnbMenu'>
                         <ul>
-                            <li>
-                                <span className='gnbTitle' onClick={()=>{navigate('/burger')}}>Menu</span>
+                            <li onClick={()=>{navigate('/burger')}}>
+                                <span className='gnbTitle'>Menu</span>
                                 <ul className='gnbsublist' style={{width : "120px"}}>
                                     <li onClick={()=>{navigate('/burger')}}><span>버거</span></li>
                                     <li onClick={()=>{navigate('/lunch')}}><span className='noline'>맥런치</span></li>
@@ -163,10 +163,10 @@ const Gnb = () => {
                                     <li><span>임차문의</span></li>
                                 </ul>
                             </li>
-                            <li>
-                                <span className='gnbTitle'>What's NEW</span>
+                            <li onClick={()=>{navigate('/whats')}}>
+                                <span className='gnbTitle' >What's NEW</span>
                                 <ul className='gnbsublist'>
-                                    <li><span>프로모션</span></li>
+                                    <li onClick={()=>{navigate('/whats')}}><span>프로모션</span></li>
                                     <li><span>새로운 소식</span></li>
                                     <li><span>이달의 해피밀</span></li>
                                 </ul>

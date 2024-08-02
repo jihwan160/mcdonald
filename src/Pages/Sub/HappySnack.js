@@ -7,7 +7,7 @@ import Aside from '../Home/Aside';
 
 
 const VisualImg = styled.div`
-    background-image: url(${process.env.PUBLIC_URL}img/burger/lunch/bg_visual_menu02.jpg);
+    background-image: url(${process.env.PUBLIC_URL}img/burger/snack/bg_visual_menu04.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     height: 220px;

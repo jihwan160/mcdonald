@@ -8,6 +8,7 @@ import HappySnack from './Pages/Sub/HappySnack';
 import Dessert from './Pages/Sub/Dessert';
 import McCafe from './Pages/Sub/McCafe';
 import Happymeal from './Pages/Sub/Happymeal';
+import WhatsNews from './Pages/Sub/WhatsNews';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path='/dessert' element={<Dessert />} />
           <Route exact path='/cafe' element={<McCafe />} />
           <Route exact path='/happy' element={<Happymeal />} />
+          <Route exact path='/whats' element={<WhatsNews />} />
         </Routes>
     </div>
   );
