@@ -169,7 +169,7 @@ const Gnb = () => {
                                 <span className='gnbTitle' onClick={()=>{navigate('/whats')}}>What's NEW</span>
                                 <ul className='gnbsublist'>
                                     <li onClick={()=>{navigate('/whats')}}><span>프로모션</span></li>
-                                    <li><span>새로운 소식</span></li>
+                                    <li onClick={()=>{navigate('/board')}}><span>새로운 소식</span></li>
                                     <li onClick={()=>{navigate('/month')}}><span>이달의 해피밀</span></li>
                                 </ul>
                             </li>
