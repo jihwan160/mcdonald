@@ -114,6 +114,47 @@ const SearchBtn = styled.button`
     cursor: pointer;
 `;
 
+const BoardList = styled.div`
+    width: 100%;
+    height: 100%;
+    max-width: 1168px;
+    margin: 0 auto;
+    & table {
+        margin-top: 30px;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid #292929;
+        border-bottom: 1px solid #000;
+        & tr {
+            cursor: pointer;
+        }
+        & tr:nth-child(1) td {
+            border-top: 0px;
+        }
+        & tr td {
+            padding: 25px 0;
+            background: #f8f8f8;
+            border-top: 1px solid #d1d1d1;
+        }
+        & tr td:nth-child(1) {
+            background-image: url(${process.env.PUBLIC_URL}img/news/ico_notice.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 11%;
+            text-align: center;
+        }
+        & tr td:nth-child(2) {
+            padding: 0 45px;
+            font-weight: 600;
+            color: #292929;
+        }
+        & tr td:nth-child(3) {
+            width: 19%;
+            text-align: center;
+        }
+    }
+`;
+
 const Board = () => {
 
     const BurgerVisual = () => {
@@ -156,6 +197,42 @@ const Board = () => {
                             <SearchBtn></SearchBtn>
                         </div>
                     </BoardAreaCover>
+                    <BoardList>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>맥도날드 '행복의 버거' 캠페인 디지털 영상 공개</td>
+                                    <td>2024.05.24</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>맥딜리버리 서비스를 제공하기 위한 맞춤형 광고 수신 동의 및 거부에 대한 고지</td>
+                                    <td>2022.10.07</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>주방 공개 행사 잠정 중단 안내의 건</td>
+                                    <td>2020.02.27</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>디카페인 커피 미판매 매장 안내</td>
+                                    <td>2020.01.20</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>칠러 미판매 매장 안내</td>
+                                    <td>2020.01.17</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>맥도날드 모바일 쿠폰 사용 제외 매장 안내</td>
+                                    <td>2019.10.07</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </BoardList>
                 </BoardArea>
             </div>
         )
