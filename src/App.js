@@ -11,6 +11,7 @@ import Happymeal from './Pages/Sub/Happymeal';
 import WhatsNews from './Pages/Sub/WhatsNews';
 import MonthHappyMeal from './Pages/Sub/MonthHappyMeal';
 import Board from './Pages/Sub/Board';
+import BurgerDetail from './Pages/Sub/BurgerDetail';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route exact path='/whats' element={<WhatsNews />} />
           <Route exact path='/board' element={<Board />} />
           <Route exact path='/month' element={<MonthHappyMeal />} />
+          <Route exact path='/detail' element={<BurgerDetail />} />
         </Routes>
     </div>
   );

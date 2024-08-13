@@ -305,9 +305,9 @@ const Burger = () => {
         const renderContent = () => {
             switch(activeTab) {
                 case 'alone' :
-                    return renderBurger(alonelist)
+                    return RenderBurger(alonelist)
                 case 'set' :
-                    return renderBurger(setlist)
+                    return RenderBurger(setlist)
                 default :
                     return(
                         <></>
@@ -315,7 +315,12 @@ const Burger = () => {
             }
         }
 
-        const renderBurger = (items) => {
+        const RenderBurger = (items) => {
+            const navigate = useNavigate(null);
+
+            const handelItemClick = (item) => {
+                navigate('/detail', {state: { title: item.con1, eng: item.con2}})
+            }
             return(
                 <BurgerContent>
                     <ul className='burgerTab'>
@@ -328,7 +333,7 @@ const Burger = () => {
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
-                                <li key={index}>
+                                <li key={index} onClick={()=>handelItemClick(i)}>
                                     <div className='blistArea'>
                                         <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />
