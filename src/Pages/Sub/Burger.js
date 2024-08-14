@@ -317,10 +317,7 @@ const Burger = () => {
 
         const RenderBurger = (items) => {
             const navigate = useNavigate(null);
-
-            const handelItemClick = (item) => {
-                navigate('/detail', {state: { title: item.con1, eng: item.con2}})
-            }
+            
             return(
                 <BurgerContent>
                     <ul className='burgerTab'>
@@ -333,7 +330,7 @@ const Burger = () => {
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
-                                <li key={index} onClick={()=>handelItemClick(i)}>
+                                <li key={index} onClick={()=>{navigate('/detail')}}>
                                     <div className='blistArea'>
                                         <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />

@@ -2,8 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Gnb from '../Home/Gnb';
 import Footer from '../Home/Footer';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import Aside from '../Home/Aside';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation} from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 const VisualImg = styled.div`
@@ -63,112 +69,45 @@ const VisualImg = styled.div`
     }
 `;
 
-// const BurgerContent = styled.div`
-//     padding: 30px 0 60px;
-//     width: 1168px;
-//     margin: 0 auto;
-//     & .burgerTab {
-//         text-align: center;
-//         margin: 0 -40px 60px;
-//         & li {
-//             font-size: 20px;
-//             font-weight: 600;
-//             display: inline-block;
-//             margin: 0 40px;
-//             cursor: pointer;
-//         }
-//         .on {
-//             color: #db0007;
-//             border-bottom: 1px solid #db0007;
-//         }
-//     }
-// `;
 
-// const Burger3g = styled.div`
-//     position: relative;
-//     & .count {
-//         color: #292929;
-//         font-size: 18px;
-//         font-weight: bold;
-//         position: absolute;
-//         left: 0;
-//         top: -45px; 
-//         & p {
-//             display: inline-block;
-//         }
-//         &::before {
-//             content: '';
-//             display: inline-block;
-//             width: 6px;
-//             height: 6px;
-//             margin: 0 14px 0 0;
-//             vertical-align: middle;
-//             border-radius: 100%;
-//             background: #f5bd43;
-//         }
-//     }
+const DetailList = styled.div`
+    max-width: 1168px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 30px 0 60px;
+    & .bgname {
+        text-align: center;
+        & h2 {
+            font-size: 35px;
+            color: #292929;
+            margin: 0;
+        }
+        & p {
+            font-size: 20px;
+            display: block;
+        }
+    }
 
-//     & .blist {
-//         text-align: center;
-//         display: grid;
-//         grid-template-columns: 1fr 1fr 1fr;
-//         & li {
-//             width: 366px;
-//             height: 352px;
-//             margin: 0 0 35px 35px;
-//             cursor: pointer;
-//             &:nth-child(3n-2) {
-//                 margin-left: 0;
-//             }
-//             &:hover .blistArea {
-//                 background: #fff;
-//                 border: 1px solid #f5bd43;
-//             }
+    & .detailImg {
+        & img::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 345px;
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            background: #f5f5f5;
+        }
+    }
 
-//             & .blistArea {
-//                 display: block;
-//                 height: 100%;
-//                 background: #f8f8f8;
-//                 border-radius: 10px;
-//                 border: 1px solid #f8f8f8;
-//                 & .burgerimg {
-//                     padding: 20px 30px 0;
-//                 }
-//                 & .name {
-//                     margin-top: 16px;
-//                     & .tit {
-//                         display: block;
-//                         color: #292929;
-//                         font-size: 20px;
-//                         font-weight: 600;
-//                         line-height: 1.3;
-//                     }
-//                     & .desc {
-//                         display: block;
-//                         margin-top: 12px;
-//                         font-size: 15px;
-//                         line-height: 1.3;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     & .more {
-//         margin-top: 45px;
-//         text-align: center;
-//     }
-// `;
+    & .con {
+        text-align: center;
+        white-space: pre-line;
+    }
 
-// const BtnMore = styled.div`
-//     background-image: url(${process.env.PUBLIC_URL}img/main/btn_more.png);
-//     background-position: 0 0;
-//     background-repeat: no-repeat;
-//         width: 90px;
-//         height: 90px;
-//         display: inline-block;
-//         overflow: hidden;
-//         cursor: pointer;
-// `;
+`
+
 
 const BurgerDetail = () => {
 
@@ -196,175 +135,80 @@ const BurgerDetail = () => {
         )
     }
 
-    // const BurgerList = () => {
-
-    //     const alonelist = [
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist1.png`,
-    //             alt : 'blist1',
-    //             con1 : '진주 고추 크림치즈 버거',
-    //             con2 : 'Jinju Pepper Cream Cheese Burger',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist2.png`,
-    //             alt : 'blist2',
-    //             con1 : '맥스파이시® 상하이 버거',
-    //             con2 : 'McSpicy®  Shanghai Burger',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist3.png`,
-    //             alt : 'blist3',
-    //             con1 : '토마토 치즈 비프 버거',
-    //             con2 : 'Tomato Cheese Beef Burger',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist4.png`,
-    //             alt : 'blist4',
-    //             con1 : '더블 쿼터파운더® 치즈',
-    //             con2 : 'Double Quarter Pounder® with Cheese',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist5.png`,
-    //             alt : 'blist5',
-    //             con1 : '쿼터파운더® 치즈',
-    //             con2 : 'Quarter Pounder® with Cheese',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist6.png`,
-    //             alt : 'blist6',
-    //             con1 : '빅맥®',
-    //             con2 : 'Big Mac®',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/blist7.png`,
-    //             alt : 'blist7',
-    //             con1 : '맥크리스피® 디럭스 버거',
-    //             con2 : 'McCrispy® Deluxe Burger',
-    //         },
-    //     ]
-
-    //     const setlist = [
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist1.png`,
-    //             alt : 'blist1',
-    //             con1 : '진주 고추 크림치즈 버거 세트',
-    //             con2 : 'Jinju Pepper Cream Cheese Burger Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist2.png`,
-    //             alt : 'blist2',
-    //             con1 : '맥스파이시® 상하이 버거 세트',
-    //             con2 : 'McSpicy®  Shanghai Burger Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist3.png`,
-    //             alt : 'blist3',
-    //             con1 : '토마토 치즈 비프 버거 세트',
-    //             con2 : 'Tomato Cheese Beef Burger Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist4.png`,
-    //             alt : 'blist4',
-    //             con1 : '더블 쿼터파운더® 치즈 세트',
-    //             con2 : 'Double Quarter Pounder® with Cheese Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist5.png`,
-    //             alt : 'blist5',
-    //             con1 : '쿼터파운더® 치즈 세트',
-    //             con2 : 'Quarter Pounder® with Cheese Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist6.png`,
-    //             alt : 'blist6',
-    //             con1 : '빅맥® 세트',
-    //             con2 : 'Big Mac® Meal',
-    //         },
-    //         {
-    //             img : `${process.env.PUBLIC_URL}img/burger/setlist7.png`,
-    //             alt : 'blist7',
-    //             con1 : '맥크리스피® 디럭스 버거 세트',
-    //             con2 : 'McCrispy® Deluxe Burger Meal',
-    //         },
-    //     ]
-
-    //     // 보여줄 리스트의 개수를 관리하는 상태
-    //     const [visibleCount, setVisibleCount] = useState(6);
-
-    //     // '더 보기' 버튼 클릭 시 실행될 함수
-    //     const showMoreItems = () => {
-    //         setVisibleCount(prevCount => prevCount + 6);
-    //     };
-
-    //     const [activeTab, setActiveTab] = useState('alone');
-
-    //     const handleTabClick = (tab) =>{
-    //         setActiveTab(tab)
-    //     }
-
-    //     const renderContent = () => {
-    //         switch(activeTab) {
-    //             case 'alone' :
-    //                 return RenderBurger(alonelist)
-    //             case 'set' :
-    //                 return RenderBurger(setlist)
-    //             default :
-    //                 return(
-    //                     <></>
-    //                 )
-    //         }
-    //     }
-
-    //     const RenderBurger = (items) => {
-    //         const navigate = useNavigate(null);
-    //         return(
-    //             <BurgerContent>
-    //                 <ul className='burgerTab'>
-    //                     <li onClick={()=>handleTabClick('alone')} className={activeTab === 'alone' ? 'on' : ''}>단품메뉴</li>
-    //                     <li onClick={()=>handleTabClick('set')} className={activeTab === 'set' ? 'on' : ''}>세트메뉴</li>
-    //                 </ul>
-    //                 <Burger3g>
-    //                     <div className='count'>
-    //                         <p>{items.length} Products</p>
-    //                     </div>
-    //                     <ul className='blist'>
-    //                         {items.slice(0,visibleCount).map((i, index) => (
-    //                             <li key={index} onClick={()=>{navigate('/detail')}}>
-    //                                 <div className='blistArea'>
-    //                                     <div className='burgerimg'>
-    //                                         <img src={i.img} alt={i.alt} />
-    //                                     </div>
-    //                                     <div className='name'>
-    //                                         <p className='tit'>{i.con1}</p>
-    //                                         <p className='eng'>{i.con2}</p>
-    //                                     </div>
-    //                                 </div>
-    //                             </li>
-    //                         ))}
-    //                     </ul>
-    //                     <div className='more'>
-    //                         {visibleCount < alonelist.length && (
-    //                             <BtnMore onClick={showMoreItems}></BtnMore>
-    //                         )}
-    //                     </div>
-    //                 </Burger3g>
-    //             </BurgerContent>
-    //         )
-    //     }
-    //     return renderContent();
-    // }
+    const slideburgerlist = [
+        {
+            name : '진주 고추 크림치즈 버거',
+            eng : 'Jinju Pepper Cream Cheese Burger',
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail1.png`,
+            alt : 'detail1',
+            con : '더 바삭해진 매콤한 상하이 치킨 패티와 \n고소한 진도 대파 크림 크로켓의 만남으로 더 맛있게!',
+            time : '*판매 시간: 오전 10시 30분 ~ 새벽 4시'
+        },
+        {
+            name : '크림치즈 버거',
+            eng : 'Jinju Pepper Cream Cheese Burger',
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail2.png`,
+            alt : 'detail2',
+            con : '더 바삭해진 매 패티와 \n고소한 진도 대파 크림 크로켓의 만남으로 더 맛있게!',
+            time : '*판매 시간: 오전 10시 30분 ~ 새벽 4시'
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail3.png`,
+            alt : 'detail3',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail4.png`,
+            alt : 'detail4',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail5.png`,
+            alt : 'detail5',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail6.png`,
+            alt : 'detail6',
+        },
+        {
+            img : `${process.env.PUBLIC_URL}img/burger/detail/detail7.png`,
+            alt : 'detail7',
+        },
+    ]
 
     const BurgerDetailList = () => {
 
-        const location = useLocation();
-        const {title, eng} = location.state || {};
-
+        // const location = useLocation();
+        // const {loctitle, loceng} = location.state || {};
 
 
         return(
-            <div>
+            <DetailList>
                 
-            </div>
+                <Swiper
+                    modules={[Navigation]}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    navigation
+                    className='swiper'
+                >
+                {slideburgerlist.map((i, index) => (
+                    <SwiperSlide key={index}>
+                        <div className='bgname'>
+                            <h2>{i.name}</h2>
+                            <p>{i.eng}</p>
+                        </div>
+                        <div className='detailImg' style={{textAlign:'center'}}>
+                            <img src={i.img} alt={i.alt} style={{width:'50%'}}/>
+                        </div>
+                        <div className='con'>
+                            {i.con} <br /><br />
+                            {i.time}
+                        </div>
+                    </SwiperSlide>
+                    
+                ))}
+                </Swiper>
+                
+            </DetailList>
         )
     }
 
