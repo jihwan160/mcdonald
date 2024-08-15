@@ -243,6 +243,7 @@ const Burger = () => {
             },
         ]
 
+
         const setlist = [
             {
                 img : `${process.env.PUBLIC_URL}img/burger/setlist1.png`,
@@ -317,6 +318,10 @@ const Burger = () => {
 
         const RenderBurger = (items) => {
             const navigate = useNavigate(null);
+
+            const handleNavClick = (item,index) => {
+                navigate(`/detail/${index}`)
+            }
             
             return(
                 <BurgerContent>
@@ -330,7 +335,7 @@ const Burger = () => {
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
-                                <li key={index} onClick={()=>{navigate('/detail')}}>
+                                <li key={index} onClick={()=>handleNavClick(i,index)}>
                                     <div className='blistArea'>
                                         <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />

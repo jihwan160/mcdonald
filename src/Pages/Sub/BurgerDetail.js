@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Gnb from '../Home/Gnb';
 import Footer from '../Home/Footer';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate, useParams } from 'react-router-dom';
 import Aside from '../Home/Aside';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -88,11 +88,11 @@ const DetailList = styled.div`
         }
     }
 
-    & .detailImg {
-        & img::before {
+    & .swiper {
+        &::before {
             content: '';
             position: absolute;
-            top: 20px;
+            top: 120px;
             left: 345px;
             width: 300px;
             height: 300px;
@@ -145,13 +145,13 @@ const BurgerDetail = () => {
             time : '*판매 시간: 오전 10시 30분 ~ 새벽 4시'
         },
         {
-            name : '크림치즈 버거',
-            eng : 'Jinju Pepper Cream Cheese Burger',
+            name : '맥스파이시® 상하이 버거',
+            eng : 'McSpicy®  Shanghai Burger',
             img : `${process.env.PUBLIC_URL}img/burger/detail/detail2.png`,
             alt : 'detail2',
-            con : '더 바삭해진 매 패티와 \n고소한 진도 대파 크림 크로켓의 만남으로 더 맛있게!',
+            con : '쌀가루가 더해져 더 바삭해진 100% 닭가슴살 패티에 \n아삭아삭한 양상추와 신선한 토마토까지!\n더 바삭하고 맛있어진 NEW 맥스파이시 상하이 버거로\n입맛도 기분도 화끈하게!',
             time : '*판매 시간: 오전 10시 30분 ~ 새벽 4시'
-        },
+        },  
         {
             img : `${process.env.PUBLIC_URL}img/burger/detail/detail3.png`,
             alt : 'detail3',
@@ -176,9 +176,9 @@ const BurgerDetail = () => {
 
     const BurgerDetailList = () => {
 
-        // const location = useLocation();
-        // const {loctitle, loceng} = location.state || {};
-
+        const { index } = useParams();  // URL 파라미터로부터 이미지 인덱스를 가져옴
+        const startIndex = parseInt(index, 10);  // 문자열을 숫자로 변환
+        console.log(index)
 
         return(
             <DetailList>
@@ -189,6 +189,7 @@ const BurgerDetail = () => {
                     slidesPerView={1}
                     navigation
                     className='swiper'
+                    initialSlide={startIndex}  // 시작 슬라이드 인덱스 설정
                 >
                 {slideburgerlist.map((i, index) => (
                     <SwiperSlide key={index}>
