@@ -17,9 +17,21 @@ button {
     background: none;
     border: none;
 }
-button,h1,h2,h3,h4,h5,h6,p,dl,dt,dd {
+
+button,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
 }
 
 select {
