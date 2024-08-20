@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Gnb from '../Home/Gnb';
 import Footer from '../Home/Footer';
@@ -77,7 +77,7 @@ const DetailList = styled.div`
     padding: 30px 0 60px;
     & .detailswiper .swiper-button-next,
     .detailswiper .swiper-button-prev {
-        top: 22.5% !important;
+        top: 250px !important;
     }
     & .bgname {
         text-align: center;
@@ -159,6 +159,27 @@ const InfoBtn = styled.div`
             text-align: center;
         }
     }
+
+    & .allergy {
+        margin-top: 20px;
+        & p {
+            color: #292929;
+            font-weight: 600;
+            & span {
+                color: #808080;
+            }
+        }
+        
+    }
+
+    & .origin {
+        margin-top: 20px;
+        & p {
+            color: #292929;
+            font-weight: 600;
+        }
+        
+    }
 `;
 
 const Toggle = styled.div`
@@ -167,6 +188,13 @@ const Toggle = styled.div`
     background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/btn_toggle.png);
     background-repeat: no-repeat;
     background-position: 0 0;
+
+    &.on {
+        background-position: 0 -27px;
+    }
+    &.off {
+        background-position: 0 0;
+    }
 `;
 
 const BurgerDetail = () => {
@@ -219,6 +247,8 @@ const BurgerDetail = () => {
             info14 : '66',
             info15 : '89',
             info16 : '-',
+            allergy : '난류,우유,대두,밀,돼지고기,토마토,닭고기',
+            origin : '닭고기:태국산(경상 지역), 국내산(그 외 지역), 쇠고기:호주산',
         },
         {
             name : '맥스파이시® 상하이 버거',
@@ -270,10 +300,59 @@ const BurgerDetail = () => {
         },
     ]
 
+    
+    
+
     const BurgerDetailList = () => {
 
         const { index } = useParams();  // URL 파라미터로부터 이미지 인덱스를 가져옴
         const startIndex = parseInt(index, 10);  // 문자열을 숫자로 변환
+
+        const [isVisible, setIsVisible] = useState(false);
+        const [isVisible2, setIsVisible2] = useState(false);
+        const [isVisible3, setIsVisible3] = useState(false);
+        
+        const toggleVisibility = () => {
+            setIsVisible(prevState => !prevState); // 현재 상태의 반대값으로 업데이트합니다.
+        };
+
+        const toggleVisibility2 = () => {
+            setIsVisible2(prevState => !prevState); // 현재 상태의 반대값으로 업데이트합니다.
+        };
+
+        const toggleVisibility3 = () => {
+            setIsVisible3(prevState => !prevState); // 현재 상태의 반대값으로 업데이트합니다.
+        };
+        
+        const [isToggle, setIsToggle] = useState(false);
+        const [isToggle2, setIsToggle2] = useState(false);
+        const [isToggle3, setIsToggle3] = useState(false);
+
+        const toggleChange = () => {
+            setIsToggle(!isToggle)
+        }
+        const toggleChange2 = () => {
+            setIsToggle2(!isToggle2)
+        }
+        const toggleChange3 = () => {
+            setIsToggle3(!isToggle3)
+        }
+
+        const handleEvent = () => {
+            toggleVisibility();
+            toggleChange();
+        }
+
+        const handleEvent2 = () => {
+            toggleVisibility2();
+            toggleChange2();
+        }
+
+        const handleEvent3 = () => {
+            toggleVisibility3();
+            toggleChange3();
+        }
+
 
         return(
             <DetailList>
@@ -300,10 +379,12 @@ const BurgerDetail = () => {
                             {i.time}
                         </div>
                         <InfoBtn>
-                            <div className='infobtnarea'>
+
+                            <div className='infobtnarea nutarea' onClick={handleEvent}>
                                 <p>영양정보</p>
-                                <Toggle></Toggle>
+                                <Toggle className={isToggle ? 'on' : 'off'}></Toggle>
                             </div>
+                            {isVisible && (
                             <table id='infoTable'>
                                 <thead>
                                     <tr>
@@ -343,14 +424,28 @@ const BurgerDetail = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <div className='infobtnarea'>
+                            )}
+
+                            <div className='infobtnarea allarea' onClick={handleEvent2}>
                                 <p>알레르기 정보</p>
-                                <Toggle></Toggle>
+                                <Toggle className={isToggle2 ? 'on' : 'off'}></Toggle>
                             </div>
-                            <div className='infobtnarea'>
+                            {isVisible2 && (
+                            <div className='allergy'>
+                                <p>알레르기 유발 가능 식재료 <span>({i.allergy})</span></p>
+                                <p>* 일부 튀김류 제품은 새우 패티와 같은 조리기구를 사용하고 있습니다.</p>
+                            </div>
+                            )}
+
+                            <div className='infobtnarea oriarea' onClick={handleEvent3}>
                                 <p>원산지 정보</p>
-                                <Toggle></Toggle>
+                                <Toggle className={isToggle3 ? 'on' : 'off'}></Toggle>
                             </div>
+                            {isVisible3 && (
+                            <div className='origin'>
+                                <p>{i.origin}</p>
+                            </div>
+                            )}
                         </InfoBtn>
                     </SwiperSlide>
                     
