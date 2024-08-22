@@ -116,6 +116,8 @@ const WhatsNews = () => {
 
         const navigate = useNavigate(null);
 
+        
+
         return(
             <>
                 <VisualImg>
@@ -133,6 +135,10 @@ const WhatsNews = () => {
     }
 
     const WhatsNew = () => {
+
+        const handleError = () => {
+            alert('준비중입니다')
+        }
 
         const initialList = [
             {
@@ -173,7 +179,7 @@ const WhatsNews = () => {
                     <h2 className='maintit'>McDonald's LIVE</h2>
                     <ul className='cardListcol'>
                         {initialList.map((i, index) => (
-                            <li className='cardList' key={index}>
+                            <li className='cardList' key={index} onClick={()=>{handleError()}}>
                                 <div>
                                     <img src={i.img} alt={i.alt}/>
                                 </div>

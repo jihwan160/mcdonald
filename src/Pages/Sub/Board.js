@@ -186,6 +186,10 @@ const Board = () => {
         //         con : '슈퍼배드4!  영화속 주인공 미니언즈를  맥도날드 해피밀 토이로 만나보세요.',
         //     },
         // ]
+
+        const handleError = () => {
+            alert('준비중입니다')
+        }
         
         return(
             <div>
@@ -202,32 +206,32 @@ const Board = () => {
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>맥도날드 '행복의 버거' 캠페인 디지털 영상 공개</td>
+                                    <td onClick={()=>{handleError()}}>맥도날드 '행복의 버거' 캠페인 디지털 영상 공개</td>
                                     <td>2024.05.24</td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>맥딜리버리 서비스를 제공하기 위한 맞춤형 광고 수신 동의 및 거부에 대한 고지</td>
+                                    <td onClick={()=>{handleError()}}>맥딜리버리 서비스를 제공하기 위한 맞춤형 광고 수신 동의 및 거부에 대한 고지</td>
                                     <td>2022.10.07</td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>주방 공개 행사 잠정 중단 안내의 건</td>
+                                    <td onClick={()=>{handleError()}}>주방 공개 행사 잠정 중단 안내의 건</td>
                                     <td>2020.02.27</td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>디카페인 커피 미판매 매장 안내</td>
+                                    <td onClick={()=>{handleError()}}>디카페인 커피 미판매 매장 안내</td>
                                     <td>2020.01.20</td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>칠러 미판매 매장 안내</td>
+                                    <td onClick={()=>{handleError()}}>칠러 미판매 매장 안내</td>
                                     <td>2020.01.17</td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>맥도날드 모바일 쿠폰 사용 제외 매장 안내</td>
+                                    <td onClick={()=>{handleError()}}>맥도날드 모바일 쿠폰 사용 제외 매장 안내</td>
                                     <td>2019.10.07</td>
                                 </tr>
                             </tbody>

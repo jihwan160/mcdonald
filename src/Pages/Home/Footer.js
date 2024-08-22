@@ -27,6 +27,7 @@ const FooterCover = styled.div`
                     font-size: 14px;
                     color: #fff;
                     font-weight: 500;
+                    cursor: pointer;
                     &:nth-child(1) {
                         color: #ffff00;
                     }
@@ -93,18 +94,21 @@ const Wa = styled.div`
 `;
 
     const Footer = () => {
+        const handleError = () => {
+            alert('준비중입니다')
+        }
         const FooterTab = () => {
             return(
                 <FooterCover>
                     <div className='footerArea'>
                         <ul className='fUtil'>
                             <li>
-                                <span>개인정보 처리방침</span>
-                                <span>위치정보 이용약관</span>
-                                <span>사이트맵</span>
-                                <span>임차문의</span>
-                                <span>고객문의</span>
-                                <span>인재채용</span>
+                                <span onClick={()=>{handleError()}}>개인정보 처리방침</span>
+                                <span onClick={()=>{handleError()}}>위치정보 이용약관</span>
+                                <span onClick={()=>{handleError()}}>사이트맵</span>
+                                <span onClick={()=>{handleError()}}>임차문의</span>
+                                <span onClick={()=>{handleError()}}>고객문의</span>
+                                <span onClick={()=>{handleError()}}>인재채용</span>
                             </li>
                         </ul>
                         <ul className='fInfo'>
@@ -128,28 +132,28 @@ const Wa = styled.div`
                         </ul>
                         <ul className='fSns'>
                             <li>
-                                <Link to={'http://www.naver.com'}>
+                                <Link to={'https://www.facebook.com/McDonaldsKorea'} target='_blink'>
                                     <Fb></Fb>
                                 </Link> 
                             </li>
                             <li>
-                                <Link to={'http://www.naver.com'}>
+                                <Link to={'https://www.instagram.com/mcdonalds_kr/'} target='_blink'>
                                     <Insta></Insta>
                                 </Link> 
                             </li>
                             <li>
-                                <Link to={'http://www.naver.com'}>
+                                <Link to={'https://www.youtube.com/user/McDonaldsKor'} target='_blink'>
                                     <Yt></Yt>
                                 </Link> 
                             </li>
                             <li>
-                                <Link to={'http://www.naver.com'}>
+                                <Link to={'https://story.kakao.com/ch/mcdonalds/feed'} target='_blink'>
                                     <Kakao></Kakao>
                                 </Link> 
                             </li>
                             <li>
                                 <Wa>
-                                    <Link to={'http://www.naver.com'}>
+                                    <Link to={'http://kdaa.or.kr/CertificationSite/WA/1920/Detail'} target='_blink'>
                                         <img src={`${process.env.PUBLIC_URL}img/footer/web_accessibility.png`} alt='web_accessibility' style={{height: '100%', verticalAlign:"middle"}}/>
                                     </Link> 
                                 </Wa>

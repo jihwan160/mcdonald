@@ -116,6 +116,10 @@ const BtnMore = styled.div`
 `;
 
 const Main = () => {
+    
+    const handleError = () => {
+        alert('준비중입니다')
+    }
 
     const slidelist = [
         {
@@ -197,6 +201,8 @@ const Main = () => {
             );
         };
 
+
+
     const Slide = () => {
 
         const duration = 4500; // 각 슬라이드 유지 시간 (밀리초)
@@ -223,7 +229,7 @@ const Main = () => {
                 {slidelist.map((i, index) => (
                     <SwiperSlide className='slide' key={index}>
                         <div style={{height : '100%'}}>
-                            <img src={i.img} alt={i.alt}  style={{cursor : 'pointer'}}/>
+                            <img src={i.img} alt={i.alt}  style={{cursor : 'pointer'}} onClick={()=>{handleError()}}/>
                             <Background></Background>
                             <SlideProgressBar duration={4000} isActive={index === activeIndex} />
                         </div>
@@ -291,7 +297,7 @@ const Main = () => {
                     <h2 className='maintit'>McDonald's LIVE</h2>
                     <ul className='cardListcol'>
                         {initialList.slice(0, visibleCount).map((i, index) => (
-                            <li className='cardList' key={index}>
+                            <li className='cardList' key={index} onClick={()=>{handleError()}}>
                                 <div>
                                     <img src={i.img} alt={i.alt}/>
                                 </div>

@@ -134,6 +134,10 @@ const MonthHappyMeal = () => {
 
     const Monthhm = () => {
 
+        const handleError = () => {
+            alert('준비중입니다')
+        }
+
         const initialList = [
             {
                 img : `${process.env.PUBLIC_URL}img/news/mhm1.png`,
@@ -148,7 +152,7 @@ const MonthHappyMeal = () => {
                     <h2 className='maintit'>McDonald's LIVE</h2>
                     <ul className='cardListcol'>
                         {initialList.map((i, index) => (
-                            <li className='cardList' key={index}>
+                            <li className='cardList' key={index} onClick={()=>{handleError()}}>
                                 <div>
                                     <img src={i.img} alt={i.alt}/>
                                 </div>

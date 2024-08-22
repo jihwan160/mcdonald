@@ -138,6 +138,10 @@ const Gnb = () => {
 
         const navigate = useNavigate(null);
 
+        const handleError = () => {
+            alert('준비중입니다');
+        }
+
         return(
             <GnbCover>
                 <div className='gnbarea w1168'>
@@ -157,12 +161,12 @@ const Gnb = () => {
                                 </ul>
                             </li>
                             <li>
-                                <span className='gnbTitle'>Store</span>
+                                <span className='gnbTitle' onClick={()=>{handleError()}}>Store</span>
                                 <ul className='gnbsublist' style={{width : "80px"}}>
-                                    <li><span>매장찾기</span></li>
-                                    <li><span>맥딜리버리</span></li>
-                                    <li><span>맥드라이브</span></li>
-                                    <li><span>임차문의</span></li>
+                                    <li onClick={()=>{handleError()}}><span>매장찾기</span></li>
+                                    <li onClick={()=>{handleError()}}><span>맥딜리버리</span></li>
+                                    <li onClick={()=>{handleError()}}><span>맥드라이브</span></li>
+                                    <li onClick={()=>{handleError()}}><span>임차문의</span></li>
                                 </ul>
                             </li>
                             <li>
@@ -174,22 +178,22 @@ const Gnb = () => {
                                 </ul>
                             </li>
                             <li>
-                                <span className='gnbTitle'>Story</span>
+                                <span className='gnbTitle' onClick={()=>{handleError()}}>Story</span>
                                 <ul className='gnbsublist' style={{width : "153px"}}>
-                                    <li><span>브랜드 소개</span></li>
-                                    <li><span>사회적 챔임과 지원</span></li>
-                                    <li><span>맥도날드 품질 이야기</span></li>
-                                    <li><span>맥도날드 사람들</span></li>
+                                    <li onClick={()=>{handleError()}}><span>브랜드 소개</span></li>
+                                    <li onClick={()=>{handleError()}}><span>사회적 챔임과 지원</span></li>
+                                    <li onClick={()=>{handleError()}}><span>맥도날드 품질 이야기</span></li>
+                                    <li onClick={()=>{handleError()}}><span>맥도날드 사람들</span></li>
                                 </ul>
                             </li>
                             <GnbSub className='gnbSub'></GnbSub>
                         </ul>
                         <div className='gnbbtnlist'>
-                            <GnbBtn>임차문의</GnbBtn>
-                            <GnbBtn>RECRUIT</GnbBtn>
-                            <GnbBtn>ENG</GnbBtn>
+                            <GnbBtn onClick={()=>{handleError()}}>임차문의</GnbBtn>
+                            <GnbBtn onClick={()=>{handleError()}}>RECRUIT</GnbBtn>
+                            <GnbBtn onClick={()=>{handleError()}}>ENG</GnbBtn>
                         </div>
-                        <div className='search_ico'><img src={`${process.env.PUBLIC_URL}img/index/search.png`} alt='search' /></div>
+                        <div className='search_ico' onClick={()=>{handleError()}}><img src={`${process.env.PUBLIC_URL}img/index/search.png`} alt='search' /></div>
                     </div>
                 </div>
             </GnbCover>

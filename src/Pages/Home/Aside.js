@@ -42,6 +42,10 @@ const AsideImg3 = styled.div`
 `;
 
 const Aside = () => {
+    
+    const handleError = () => {
+        alert('준비중입니다')
+    }
 
     const scrolltoTop = () => {
         window.scrollTo({
@@ -53,8 +57,8 @@ const Aside = () => {
     const AsideArea = () => {
         return(
             <AsideCover>
-                <AsideImg1></AsideImg1>
-                <AsideImg2></AsideImg2>
+                <AsideImg1 onClick={()=>{handleError()}}></AsideImg1>
+                <AsideImg2 onClick={()=>{handleError()}}></AsideImg2>
                 <AsideImg3 onClick={scrolltoTop}></AsideImg3>
             </AsideCover>
         )

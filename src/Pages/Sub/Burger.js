@@ -303,6 +303,10 @@ const Burger = () => {
             setActiveTab(tab)
         }
 
+        const handeleError = () => {
+            alert('준비중입니다')
+        }
+
         const renderContent = () => {
             switch(activeTab) {
                 case 'alone' :
@@ -335,7 +339,7 @@ const Burger = () => {
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
-                                <li key={index} onClick={activeTab === 'alone' ? () => handleNavClick(i,index) : null}>
+                                <li key={index} onClick={activeTab === 'alone' ? () => handleNavClick(i,index) : () => handeleError()}>
                                     <div className='blistArea'>
                                         <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />

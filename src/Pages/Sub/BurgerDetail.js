@@ -79,6 +79,44 @@ const DetailList = styled.div`
     .detailswiper .swiper-button-prev {
         top: 250px !important;
     }
+
+    & .detailswiper .swiper-button-next {
+        width: 110px;
+        height: 110px;
+        background: #ffbc0d;
+        border-radius: 110px;
+        padding: 10px;
+        &::after {
+            width: 17px;
+            height: 34px;
+            background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/bg_arrow.png);
+            background-position: 0 -34px;
+            background-repeat: no-repeat;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    & .detailswiper .swiper-button-prev {
+        width: 110px;
+        height: 110px;
+        background: #ffbc0d;
+        border-radius: 110px;
+        padding: 10px;
+        &::after {
+            width: 17px;
+            height: 34px;
+            background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/bg_arrow.png);
+            background-position: 0 0px;
+            background-repeat: no-repeat;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+
     & .bgname {
         text-align: center;
         & h2 {

@@ -302,6 +302,10 @@ const Dessert = () => {
             setActiveTab(tab)
         }
 
+        const handleError = () => {
+            alert('준비중입니다')
+        }
+
         const renderContent = () => {
             switch(activeTab) {
                 case 'side' :
@@ -328,7 +332,7 @@ const Dessert = () => {
                         </div>
                         <ul className='blist'>
                             {items.slice(0,visibleCount).map((i, index) => (
-                                <li key={index}>
+                                <li key={index} onClick={()=>{handleError()}}>
                                     <div className='blistArea'>
                                         <div className='burgerimg'>
                                             <img src={i.img} alt={i.alt} />
