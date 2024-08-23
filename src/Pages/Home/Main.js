@@ -46,14 +46,21 @@ const Background = styled.div`
     background-image: url(${process.env.PUBLIC_URL}/img/index/swiperbtn.png);
     background-position: -92px -36px;
     background-repeat: no-repeat;
-        width: 36px;
-        height: 36px;
-        position: absolute;
-        left: 51%;
-        transform: translate(-50%);
-        bottom: 13px;
-        margin-left: -183px;
-        cursor: pointer;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    left: 51%;
+    transform: translate(-50%);
+    bottom: 13px;
+    margin-left: -183px;
+    cursor: pointer;
+
+    &.on {
+        background-position: -92px 0;
+    }
+    &.off {
+        background-position: -92px -36px;
+    }
 `;
 
 
@@ -207,6 +214,21 @@ const Main = () => {
 
         const duration = 4500; // 각 슬라이드 유지 시간 (밀리초)
         const [activeIndex, setActiveIndex] = useState(0);
+        const [isClick, setIsClick] = useState(false);
+        const [swiperInstance, setSwiperInstance] = useState(null);
+
+        const StopClick = () => {
+            setIsClick(!isClick);
+                if (swiperInstance) {
+                        if (isClick) {
+                            swiperInstance.autoplay.start();
+                        } else {
+                            swiperInstance.autoplay.stop();
+                    }
+                }
+            };
+
+        
 
         return(
             <SwiperArea>
@@ -225,16 +247,18 @@ const Main = () => {
                     onSlideChange={(swiper) => {
                         setActiveIndex(swiper.realIndex); // 현재 슬라이드 인덱스 업데이트
                     }}
+                    onSwiper={(swiper) => {
+                        setSwiperInstance(swiper);
+                    }}
                 >
                 {slidelist.map((i, index) => (
                     <SwiperSlide className='slide' key={index}>
                         <div style={{height : '100%'}}>
                             <img src={i.img} alt={i.alt}  style={{cursor : 'pointer'}} onClick={()=>{handleError()}}/>
-                            <Background></Background>
-                            <SlideProgressBar duration={4000} isActive={index === activeIndex} />
+                            <Background className={isClick ? 'on' : 'off'} onClick={()=>{StopClick()}}></Background>
+                            <SlideProgressBar duration={4000} isActive={index === activeIndex && !isClick} />
                         </div>
                     </SwiperSlide>
-                    
                 ))}
                 </Swiper>
             </SwiperArea>
