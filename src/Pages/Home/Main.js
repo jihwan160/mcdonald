@@ -43,7 +43,7 @@ const SwiperArea = styled.div`
 `;
 
 const Background = styled.div`
-    background-image: url(${process.env.PUBLIC_URL}/img/index/swiperbtn.png);
+    background-image: url(${process.env.PUBLIC_URL}img/index/swiperbtn.png);
     background-position: -92px -36px;
     background-repeat: no-repeat;
     width: 36px;

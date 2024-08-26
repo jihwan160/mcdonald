@@ -89,7 +89,7 @@ const DetailList = styled.div`
         &::after {
             width: 17px;
             height: 34px;
-            background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/bg_arrow.png);
+            background-image: url(${process.env.PUBLIC_URL}img/burger/detail/bg_arrow.png);
             background-position: 0 -34px;
             background-repeat: no-repeat;
         }
@@ -107,7 +107,7 @@ const DetailList = styled.div`
         &::after {
             width: 17px;
             height: 34px;
-            background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/bg_arrow.png);
+            background-image: url(${process.env.PUBLIC_URL}img/burger/detail/bg_arrow.png);
             background-position: 0 0px;
             background-repeat: no-repeat;
         }
@@ -223,7 +223,7 @@ const InfoBtn = styled.div`
 const Toggle = styled.div`
     width: 27px;
     height: 27px;
-    background-image: url(${process.env.PUBLIC_URL}/img/burger/detail/btn_toggle.png);
+    background-image: url(${process.env.PUBLIC_URL}img/burger/detail/btn_toggle.png);
     background-repeat: no-repeat;
     background-position: 0 0;
 
