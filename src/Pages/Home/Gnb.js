@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
@@ -95,6 +95,17 @@ const GnbCover = styled.div`
         align-items: center;
         cursor: pointer;
     }
+
+    & .sticky {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #fff;
+        z-index: 999;
+        justify-content: center;
+        border-bottom: 1px solid #ffbc0d;
+    }
 `;
 
 const GnbBtn = styled.button`
@@ -142,9 +153,27 @@ const Gnb = () => {
             alert('준비중입니다');
         }
 
+        const [isSticky, setIsSticky] = useState(false);
+
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop > 50) {
+                setIsSticky(true);
+            }else {
+                setIsSticky(false);
+            }
+        }
+
+        useEffect(()=>{
+            window.addEventListener('scroll',handleScroll);
+            return () => {
+                window.addEventListener('scroll',handleScroll);
+            }
+        }, [])
+
         return(
             <GnbCover>
-                <div className='gnbarea w1168'>
+                <div className={isSticky ? 'gnbarea sticky' : 'gnbarea w1168'}>
                     <div className='logo' onClick={()=>{navigate('/')}}><img src={`${process.env.PUBLIC_URL}img/index/logo.png`} alt='logo' /></div>
                     <div className='gnbMenu'>
                         <ul>
